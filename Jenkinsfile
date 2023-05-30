@@ -21,7 +21,7 @@ pipeline
                     }
                     else if (dia == 2)
                     {
-                        println "El usuario que inicio el trabajo es ${env.USERNAME}"
+                        echo "El usuario de ejecución es ${env.USERNAME}"
                     }
                     else if (dia == 3)
                     {
