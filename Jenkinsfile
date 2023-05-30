@@ -1,22 +1,42 @@
 pipeline
 {
-agent any
-stages
+    agent any
+    environment
     {
-    stage("Saludar")
-    {
-        steps
-        {
-            echo "Hola!"
-        }
+         tiempo_actual = "Soleado"
     }
-    stage("Despedirme")
+    stages
     {
-        steps
+        stage("-------")
         {
-         echo "Hasta luego Lucas!"   
+            steps
+            {
+                script
+                {
+                    def dia = new Date().getDay()
+                    
+                    if (dia == 1)
+                    {
+                        println "No hacemos nada"
+                    }
+                    else if (dia == 2)
+                    {
+                        println "El usuario que inicio el trabajo es ${env.USERNAME}"
+                    }
+                    else if (dia == 3)
+                    {
+                        println "El tiempo actual es: "+soleado
+                    }
+                    else if (dia == 4)
+                    {
+                        git branch: "main", url: "https://github.com/xavicolmenero/CICD_Jenkins.git"
+                    }
+                    else if (dia==5)
+                    {
+                        println "No hacemos nada"
+                    }
+                }
+            }
         }
-        
-    }
     }
 }
